@@ -1,5 +1,6 @@
 module Rtq
   ( Queue
+  , SpineStrictList
   , empty
   , singleton
   , push
