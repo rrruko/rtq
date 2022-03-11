@@ -19,6 +19,7 @@
 
 module Rtq.Internal
   ( Queue(..)
+  , SpineStrictList(..)
   , empty
   , singleton
   , push
@@ -142,7 +143,7 @@ parProgress Done        !p          = p
 parProgress (NotYet p1) (NotYet p2) = NotYet (parProgress p1 p2)
 
 data SpineStrictList a = Nil | Cons a !(SpineStrictList a)
-  deriving stock (Eq, Show)
+  deriving stock (Eq, Show, Generic)
   deriving stock (Functor, Foldable, Traversable)
 
 forceSpine :: Int -> [a] -> Progress
